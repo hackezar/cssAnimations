@@ -1,3 +1,96 @@
-.hello {
-  color: red;
+html {
+  height: 100vh;
 }
+
+.text {
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+  /*Extra keyframe*/
+  75% {
+    font-size: 300%;
+    margin-left: 25%;
+    width: 150%;
+  }
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+.header1 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.slidein {
+  animation-duration: 3s;
+  animation-name: watchmemove;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+}
+
+@keyframes watchmemove {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+#divElem {
+  font-size: 1.6rem;
+  padding: 20px;
+  border: 3px solid red;
+  border-radius: 20px;
+  width: 480px;
+  opacity: 0;
+  display: none;
+}
+
+/* Animation Classes */
+#divElem.fade-in {
+  display: block;
+  animation: fade-in 0.7s ease-in forwards;
+}
+
+#divElem.fade-out {
+  animation: fade-out 0.7s ease-out forwards;
+}
+
+/* Animation keyframes */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    display: none;
+  }
+
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes fade-out {
+  0%{
+    opacity: 1;
+    display: block;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+

@@ -1,8 +1,41 @@
 import _ from "lodash";
 import "./style.css";
 
-import { analyzeArray, caesarCipher } from "./testingPractice.js";
+function listener(event) {
+    const l = document.createElement('li');
+    switch (event.type) {
+        case "animationstart":
+            l.textContent = `Started: elapse time is ${event.elapsedTime}`;
+            break;
+        case "animationend":
+            l.textContent = `Ended: elapsed time is ${event.elapsedTime}`;
+            break;
+        case "animationiteration":
+            l.textContent = `New loop started at time ${event.elapsedTime}`;
+            break;
+    }
+    document.getElementById('output').appendChild(l);
+}
 
-console.log(caesarCipher('jack halcisak!?', 3));
+let element = document.getElementById('watchme');
+element.addEventListener('animationstart', listener, false);
+element.addEventListener('animationend', listener, false);
+element.addEventListener('animationiteration', listener, false);
 
-console.log(analyzeArray([1, 8, 3, 4, 2, 6]));
+element.className = 'slidein';
+
+const divElem = document.getElementById('divElem');
+const htmlElem = document.querySelector(":root");
+
+htmlElem.addEventListener("click", showHide);
+document.addEventListener("keydown", showHide);
+
+function showHide() {
+    if(divElem.classList[0] === "fade-in") {
+        divElem.classList.remove("fade-in");
+        divElem.classList.add("fade-out");
+    } else {
+        divElem.classList.remove("fade-out");
+        divElem.classList.add("fade-in");
+    }
+}
